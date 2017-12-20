@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css"  href="css/w3.css">
+<link rel="stylesheet" type="text/css"  href="css/style_admin.css">
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript" src="js/script_admin.js"></script> 
+<title>Admin Panel</title>
+
+</head>
+<body>
+
+<div class="container" ng-app="myApp" ng-controller="myCtrl">
+
+    <header>
+       <h1>NAME Admin Panel</h1>
+       <a>Welcome {{main_heading}}</a>
+    </header>    
+
+    <div class="w3-sidebar w3-bar-block w3-light-grey w3-card">
+      <!-- <h5 class="w3-bar-item">Menu</h5> -->
+      <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Header')">Header</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'About')">About</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Services')">Services</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Gallery')">Gallery</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Testimonials')">Testimonials</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openCity(event, 'Contact')">Contact</button>
+    </div>
+
+    <div class="row">
+      <div id="Header" class="w3-container city" style="display:none">
+           <h2>Main Heading Section</h2> 
+           <form>
+            <div class="form-group">
+              <label for="main_heading">Main Heading:</label>
+              <input type="text" class="form-control" ng-model="main_heading" value="{{main_heading}}">
+            </div>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea class="form-control" ng-model="main_descrption" rows="6" cols="50">{{main_descrption}}</textarea>
+            </div>
+           <div class="form-group">
+              <label for="main_heading">Last Updated On:</label>
+              <input type="text" class="form-control" id="heading_date" value="{{heading_date}}" disabled>
+            </div>
+            <button type="submit" class="btn btn-success Save_heading">Update</button>
+          </form>
+      </div>
+      <div id="About" class="w3-container city" style="display:none">
+        <h2>About Section</h2>
+           <form>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea class="form-control" ng-model="company_about_us" rows="6" cols="50">{{company_about_us}}</textarea>
+            </div>
+           <div class="form-group">
+              <label for="main_heading">Last Updated On:</label>
+              <input type="text" class="form-control" id="heading_date" value="{{heading_date}}" disabled>
+            </div>
+            <button type="submit" class="btn btn-success Save_heading">Update</button>
+          </form>
+      </div>
+
+      <div id="Services" class="w3-container city" style="display:show">
+        <h2>Services Section</h2>
+           <form>
+            <div class="form-group">
+              <label for="main_heading">Service Type:</label>
+              <input type="text" class="form-control" ng-model="service_heading" value="{{service_heading}}">
+            </div>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea class="form-control" ng-model="service_descrption" rows="6" cols="50">{{service_descrption}}</textarea>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Select File</label>
+                <input id="input-b5" name="input-b5[]" type="file" multiple ng-model="service_image_url">
+            </div>
+            <button type="submit" class="btn btn-success" id="Save_Service">ADD</button>
+          </form>
+      </div>
+
+        <div id="Gallery" class="w3-container city" style="display:none">
+        <h2>Gallery Section</h2>
+           <form>
+            <div class="form-group">
+              <label for="main_heading">Category:</label>
+              <input type="text" class="form-control" ng-model="-image_category" value="{{image_category}}">
+            </div>
+            <div class="form-group">
+              <label for="main_heading">Image name:</label>
+              <input type="text" class="form-control" ng-model="-image_category" value="{{image_category}}">
+            </div>
+            <div class="form-group" ng-model="service_image_url">
+                <label class="control-label">Select File</label>
+                <input id="input-b5" name="input-b5[]" type="file" multiple>
+            </div>
+            <button type="submit" class="btn btn-success" id="Save_Service">ADD</button>
+          </form>
+      </div>
+
+        <div id="Testimonials" class="w3-container city" style="display:none">
+        <h2>Testimonials Section</h2>
+           <form>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea class="form-control" ng-model="task_descrption" rows="6" cols="50">{{task_descrption}}</textarea>
+            </div>
+            <div class="form-group">
+              <label for="main_heading">Testimonials By:</label>
+              <input type="text" class="form-control" ng-model="task_by_heading" value="{{task_by_heading}}">
+            </div> 
+            <button type="submit" class="btn btn-success" id="Save_testrimonial">ADD</button>
+          </form>
+      </div>
+
+        <div id="Contact" class="w3-container city" style="display:none">
+        <h2>Contact Section</h2>
+           <form>
+            <div class="col-md-12">
+              <div class="col-md-4">
+                <h2>Address </h2>
+                <div class="form-group">
+                  <label for="main_heading">Address Line 1:</label>
+                  <input type="text" class="form-control" ng-model="address_line1" value="{{address_line1}}">
+                </div>
+                <div class="form-group">
+                  <label for="main_heading">Address Line 2:</label>
+                  <input type="text" class="form-control" ng-model="address_line2" value="{{address_line2}}">
+                </div>
+              <div class="form-group">
+                <label for="main_heading">Last Updated On:</label>
+                <input type="text" class="form-control" ng-model="contact_date" value="{{contact_date}}" disabled>
+            </div>
+            <button type="submit" class="btn btn-success" id="Save_Contact">Update</button>
+
+              </div>
+              <div class="col-md-4">
+                <h2>Working Hours </h2>
+                <div class="form-group">
+                  <label for="main_heading">Days OF Working:</label>
+                  <input type="text" class="form-control" ng-model="work_hours" value="{{work_hours}}">
+                </div>
+                <div class="form-group">
+                  <label for="main_heading">Week Holiday:</label>
+                  <input type="text" class="form-control" ng-model="work_holiday" value="{{work_holiday}}">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <h2>Phone & Email </h2>
+                <div class="form-group">
+                  <label for="main_heading">Phone:</label>
+                  <input type="text" class="form-control" ng-model="contact_phone" value="{{contact_phone}}">
+                </div>
+                <div class="form-group">
+                  <label for="main_heading">Email:</label>
+                  <input type="text" class="form-control" ng-model="contact_email" value="{{contact_email}}">
+                </div>
+              </div>
+              </div>
+          </form>
+      </div>
+    </div>
+  <!-- Footer Section -->
+  <div id="footer">
+    <div class="container text-center">
+      <div class="col-md-8 col-md-offset-2">
+        <p>&copy; 2017 Name. Designed by <a href="http://www.exiox.com" rel="nofollow">ExioxDesigns</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

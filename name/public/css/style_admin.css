@@ -1,0 +1,20 @@
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+.city{
+	height: 500px;
+	margin-left:300px;
+}
+.w3-sidebar{
+	width:230px;
+	height:500px;
+}
