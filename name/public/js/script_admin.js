@@ -15,12 +15,11 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " w3-red";
 }
 
-// s
+// Ajax POST & GET Services
+
 var app = angular.module('myApp', []);
 app.controller("myCtrl", function($scope, $http) {  //angular controller
-        // $(document).on('ready', function() {
-        //     $("#input-b5").fileinput({showCaption: false});
-        //         });
+   
 
                 var sid =  '5a3383c6c844fe04901e10b1';
                     var responsePromise = $http.get('http://localhost:'+port+'/services/'+sid);
@@ -147,10 +146,10 @@ app.controller("myCtrl", function($scope, $http) {  //angular controller
          }       
       });
                   
-      // ajax POST & GET Contacts
+  // ajax POST & GET Contacts
 
 
-            var cid =  '5a3343c74c9c4a029ab52793';
+    var cid =  '5a3343c74c9c4a029ab52793';
     var responsePromise = $http.get('http://localhost:'+port+'/contacts/'+cid);
 
         responsePromise.success(function(data) {

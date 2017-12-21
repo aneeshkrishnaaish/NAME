@@ -5,8 +5,8 @@ var express = require('express'),
   Task = require('./api/models/todoListModel'), //created model loading here
   bodyParser = require('body-parser');
   var morgan = require('morgan');             // log requests to the console (express4)
-var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
-var cors = require('cors');
+  var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
+  var cors = require('cors');
 
   
 // mongoose instance connection url connection
